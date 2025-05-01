@@ -1,3 +1,5 @@
+//https://raw.githubusercontent.com/SheepFJ/VidSheep3/refs/heads/main/main/main.js
+
 // 通用工具函数和环境检测
 const isLoon = typeof $persistentStore !== "undefined";
 const isQuanX = typeof $prefs !== "undefined";
@@ -103,7 +105,7 @@ let vidSheepUserinfo = {
 // 对象数据
 let vidSheepUserinfoData = storage.get("vidSheepUserinfo")
 
-if (vidSheepUserinfoData.initialization) {
+if (vidSheepUserinfoData && vidSheepUserinfoData.initialization) {
 
     console.log("已初始化")
 } else {
@@ -428,7 +430,7 @@ function handleMain() {
 
 
     <div id="main-container">
-        <div id="search-section" class="content-section active" ">
+        <div id="search-section" class="content-section active" onclick="userinfo() ">
             搜索
            
         </div>
