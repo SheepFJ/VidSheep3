@@ -19,6 +19,7 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        text-decoration: none;
     }
 
     html,
@@ -47,7 +48,7 @@
         right: 0;
         bottom: 0;
         z-index: -1;
-        background-image: url('https://img.picgo.net/2025/04/11/GsWwJ8qQUAqD_1740639963384332315e3baafa765.jpeg');
+        background-image: url('https://img.picgo.net/2025/04/11/PkKNT35Ufzvy_17070318020985ee9b67a8ea96c77.jpeg');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -115,7 +116,57 @@
         color: #fff;
     }
 
+    .content-section.active {
+        display: block;
+    }
 
+
+
+    /* 公告 */
+    .announcement {
+
+        height: 250px;
+        margin: 20% 5%;
+        position: fixed;
+        z-index: 999;
+        padding: 20px;
+        overflow: hidden;
+    }
+
+    .announcement_active {
+        display: none;
+    }
+
+
+
+    .announcementButton {
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 16px;
+        font-size: 14px;
+        align-self: center;
+        /* 按钮居中对齐 */
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .math-notebook {
+        /* 背景色 */
+        background-image: linear-gradient(to bottom, rgba(206, 206, 206, 0.408) 5%, transparent 5%);
+        background-repeat: repeat;
+        background-size: 10% 20px;
+
+        border-radius: 8px;
+        /* 边角圆润 */
+    }
+</style>
+
+<style>
+    /* =================开始====================== */
     /* 便利贴样式，用于书写文档 */
     .stickyNotes {
         background-color: rgb(255, 255, 102);
@@ -152,66 +203,14 @@
         z-index: -1;
     }
 
-
-
-
-
-
-    .content-section.active {
-        display: block;
-    }
-
-
-    /* 公告 */
-    .announcement {
-
-        height: 250px;
-        margin: 20% 5%;
-        position: fixed;
-        z-index: 999;
-        padding: 20px;
-        overflow: hidden;
-    }
-
-    .announcement_active {
-        display: none;
-    }
-
-
-
-    .faxianlist {
-        margin: 10% 5%;
-        height: 50px;
-    }
-
-    .announcementButton {
-        background-color: #ff4d4d;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        padding: 8px 16px;
-        font-size: 14px;
-        align-self: center;
-        /* 按钮居中对齐 */
-        position: absolute;
-        bottom: 10px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .math-notebook {
-        /* 背景色 */
-        background-image: linear-gradient(to bottom, rgba(206, 206, 206, 0.408) 5%, transparent 5%);
-        background-repeat: repeat;
-        background-size: 10% 20px;
-
-        border-radius: 8px;
-        /* 边角圆润 */
-    }
+    /* ===================结束==================== */
 </style>
 
 <body>
+    <!-- 背景 -->
     <div id="background"></div>
+    <!-- 占顶 -->
+    <div style="background-color: rgba(0, 0, 0, 0.2); height: 2%;"></div>
 
     <!-- 公告 -->
     <div class="announcement announcement_active stickyNotes math-notebook">
@@ -224,7 +223,7 @@
             <li>加入更多个性化设置</li>
             <li>解决进度条的问题</li>
             <li>解决不同设备UI适配问题</li>
-            <li>......</li>
+            <li> <a href="https://github.com/SheepFJ/VidSheep" target="_blank">Stars</a> 支持一下作者～</li>
             <li>......</li>
             <li>......</li>
         </ul>
@@ -233,42 +232,334 @@
     </div>
 
 
+    <!-- 公共弹出框 -->
+    <div id="public-popup"
+        style="z-index: 998;height: 30%; width: 90%;margin-left: 5%;  background-color: #eb6259; position: absolute;top: 20%;">
+        <div class="public-popup-content">
+            <h2>公共弹出框</h2>
+        </div>
+    </div>
+
+
     <div id="main-container">
-        <div id="search-section" class="content-section active" ">
-            搜索
-           
-        </div>
+        <!-- 占顶 -->
+        <div style="background-color: rgba(0, 0, 0, 0.4); height: 6%;"></div>
 
-        <div id=" list-section" class="content-section">
-            <ul>
-                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, ad? Perferendis in placeat
-                    quas quis itaque magnam commodi, amet libero, expedita possimus unde maiores alias omnis, nihil
-                    sapiente deleniti dicta!</li>
-                <li>Tempore voluptate blanditiis doloribus deserunt ab omnis eaque aut incidunt illo mollitia. Deserunt,
-                    obcaecati, eligendi, delectus unde totam earum dolorum nihil reiciendis nam minima nostrum facilis
-                    reprehenderit ea inventore beatae!</li>
-                <li>Similique inventore fuga ipsam reprehenderit aperiam, excepturi suscipit corporis quo architecto,
-                    adipisci exercitationem sapiente atque magni vel perspiciatis dolorem quae quas facere deserunt!
-                    Sequi magnam animi velit aperiam id repellendus!</li>
-            </ul>
-        </div>
 
+        <style>
+            .search-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                padding: 20px;
+                background-color: rgba(0, 0, 0, 0.1);
+                border-radius: 10px;
+                backdrop-filter: blur(5px);
+            }
+
+            .search-input {
+                width: 70%;
+                padding: 12px 15px;
+                border: none;
+                border-radius: 25px 0 0 25px;
+                font-size: 16px;
+                outline: none;
+                background-color: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
+            }
+
+            .search-input:focus {
+                background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
+
+
+
+            .search-button {
+                padding: 12px 20px;
+                background: linear-gradient(135deg, #ff5e62, #ff9966);
+                color: white;
+                border: none;
+                border-radius: 0 25px 25px 0;
+                cursor: pointer;
+                font-size: 16px;
+                font-weight: bold;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                transition: all 0.3s ease;
+            }
+
+            .search-button:hover {
+                background: linear-gradient(135deg, #ff9966, #ff5e62);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            }
+
+            .recent-search {
+                margin: 15px 20px;
+                background-color: rgba(255, 255, 255, 0.1);
+                border-radius: 10px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .recent-search-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+                font-size: 14px;
+                color: #eb6259;
+            }
+
+            .recent-search-title {
+                font-weight: bold;
+            }
+
+            .clear-history {
+                color: #ffffff;
+                cursor: pointer;
+                font-size: 12px;
+                font-weight: bold;
+                background: linear-gradient(135deg, #ff5e62, #ff9966);
+                border-radius: 15px;
+                padding: 3px 7px;
+                border: none;
+            }
+
+            .clear-AI {
+                color: #ffffff;
+                cursor: pointer;
+                font-size: 12px;
+                font-weight: bold;
+                background: linear-gradient(125deg, #ff5e62, #ff9966);
+                border-radius: 15px;
+                padding: 3px 7px;
+                border: none;
+                margin-left: 35%;
+            }
+
+            .recent-keywords {
+                max-height: 80px;
+                overflow-y: auto;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .keyword-item {
+                background-color: #f4d69c;
+                border-radius: 15px;
+                padding: 6px 12px;
+                font-size: 12px;
+                color: #333;
+                display: inline-block;
+                cursor: pointer;
+                transition: background-color 0.2s;
+            }
+
+            .keyword-item:hover {
+                background-color: #e0e0e0;
+            }
+
+            .media-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+                margin-top: 20px;
+
+            }
+
+            .media-card {
+                background-color: rgb(255, 255, 255);
+                border-radius: 10px;
+                overflow: hidden;
+                margin: 0 2px;
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .media-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+            }
+
+            .media-image {
+                width: 100%;
+                height: 120px;
+                object-fit: cover;
+            }
+
+            .media-title {
+                padding: 5px 10px;
+                font-size: 14px;
+                font-weight: 500;
+                text-align: center;
+                color: #333;
+            }
+
+            .source-select {
+                width: 40%;
+                padding: 8px;
+                margin: 1px 30%;
+                border-radius: 20px;
+                border: 1px solid #ddd;
+                background-color: #ebebebf4;
+                color: #5d5d5d;
+                font-size: 14px;
+                background-size: 16px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+
+            }
+        </style>
+        <!-- 搜索 -->
+        <div id="search-section" class="content-section active">
+            <div class="search-container">
+                <input type="text" placeholder="搜索影视资源..." class="search-input">
+                <button class="search-button">搜索</button>
+
+            </div>
+            <select class="source-select">
+                <option value="1" disabled selected>点击选择搜索源</option>
+                <option value="1">数据源1</option>
+                <option value="2">数据源2</option>
+                <option value="3">数据源3</option>
+                <option value="4">数据源4</option>
+                <option value="5">数据源5</option>
+            </select>
+
+            <!-- 最近搜索关键词 -->
+            <div class="recent-search">
+                <div class="recent-search-header">
+                    <span class="recent-search-title">搜索历史</span>
+                    <button class="clear-AI">AI推荐</button>
+                    <button class="clear-history">删除历史</button>
+                </div>
+                <div class="recent-keywords">
+
+                </div>
+            </div>
+            <!-- 搜索结果 -->
+            <div class="search-results">
+
+                <!-- 影视推荐 -->
+                <div class="media-grid">
+                    <div class="media-card" data-id="21508">
+                        <img src="https://img.picgo.net/2025/04/11/GsWwJ8qQUAqD_1740639963384332315e3baafa765.jpeg"
+                            alt="小猪佩奇" class="media-image">
+                        <div class="media-title">小猪佩奇</div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- 搜索js -->
+        <script>
+            // 获取历史搜索关键词,打开页面即执行
+            fetch('https://api.sheep.com/sheep/VidSheep/api/?keywords=all')
+                .then(response => response.json())
+                .then(data => {
+                    // 将data.data.array中的数据添加到搜索历史列表中
+                    const searchHistory = document.querySelector('.recent-keywords');
+                    data.data.array.forEach(keyword => {
+                        searchHistory.innerHTML += `<span class="keyword-item">\${keyword}</span>`;
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                })
+
+            // 删除历史记录
+            const clearHistory = document.querySelector('.clear-history');
+            clearHistory.addEventListener('click', () => {
+                fetch('https://api.sheep.com/sheep/VidSheep/api/?keywords=clear')
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data.data.information);
+                        // 清空搜索历史UI
+                        searchHistory.innerHTML = '';
+                    })
+                    .catch(error => {
+                        console.error('清除历史记录失败:', error);
+                    });
+            });
+
+
+            // 搜索
+            const searchInput = document.querySelector('.search-input');
+            const searchButton = document.querySelector('.search-button');
+            const sourceSelect = document.querySelector('.source-select');
+
+            searchButton.addEventListener('click', () => {
+                const searchWord = searchInput.value;
+                const sourceValue = sourceSelect.value;
+
+
+                if (searchWord.trim() !== '' && searchWord.trim().length <= 20) {
+                    // 将搜索历史添加到搜索历史列表中最前
+                    const searchHistory = document.querySelector('.recent-keywords');
+                    searchHistory.innerHTML = `<span class="keyword-item">${searchWord}</span>` + searchHistory.innerHTML;
+
+                    //清除搜索框内容
+                    searchInput.value = '';
+
+                    // 发送搜索请求
+                    fetch(`https://api.sheep.com/sheep/VidSheep/api/?search=${sourceValue}&searchword=${encodeURIComponent(searchWord)}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data.data.information);
+                            // 这里可以处理搜索结果
+                        })
+                        .catch(error => {
+                            console.error('搜索请求出错:', error);
+                        });
+                }
+            });
+
+            //点击搜索历史词加入搜索框
+            const searchHistory = document.querySelector('.recent-keywords');
+            searchHistory.addEventListener('click', (e) => {
+                // 只有当点击的是关键词元素时才将其添加到搜索框
+                if (e.target.classList.contains('keyword-item')) {
+                    searchInput.value = e.target.textContent;
+                }
+            });
+        </script>
+
+
+
+
+        <!-- 最近 -->
+        <style>
+
+        </style>
+        <!-- 最近 -->
+        <div id="list-section" class="content-section">
+
+        </div>
+        <!-- 最近js -->
+        <script>
+
+        </script>
+
+
+
+
+
+        <!-- 发现 -->
         <div id="discover-section" class="content-section ">
-            <div class="stickyNotes faxianlist">
-                <div class="stickyNotes_nail"></div>
-                更换壁纸111111111
-            </div>
-            <div class="stickyNotes faxianlist">
-                <div class="stickyNotes_nail"></div>
-                更换色彩222222
-            </div>
-            <div class="stickyNotes faxianlist">
-                <div class="stickyNotes_nail"></div>
-                我不知道33333333
-            </div>
+            发现
+        </div>
+
+
+        <!-- 占底 -->
+        <div style="background-color: rgba(0, 0, 0, 0.4); height: 15%;">
+
         </div>
 
     </div>
+
 
     <footer>
         <div id="bottom-nav">
@@ -286,6 +577,8 @@
             </div>
         </div>
     </footer>
+
+
 
     <script>
         //api数据定义

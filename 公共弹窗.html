@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .public-popup {
+        display: none;
+    }
+</style>
+
+<body>
+    <!-- 按钮部分 -->
+    <button onclick="showPopup('0001')">按钮1</button>
+    <button onclick="showPopup('0002')">按钮2</button>
+
+    <!-- 弹出框 -->
+    <div id="public-popup"
+        style="z-index: 998; height: 30%; width: 90%; margin-left: 5%; background-color: #eb6259; position: absolute; top: 20%; display: none;">
+        <div class="public-popup-content">
+            <h2 id="popup-text">公共弹出框</h2>
+            <!-- 0001 -->
+            <div id="0001">
+                <h2>0001</h2>
+            </div>
+            <!-- 0002 -->
+            <div id="0002">
+                <h2>0002</h2>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    function showPopup(text) {
+        // 先隐藏所有内容
+        document.getElementById('0001').style.display = 'none';
+        document.getElementById('0002').style.display = 'none';
+
+        // 显示弹出框
+        document.getElementById('public-popup').style.display = 'block';
+
+        // 根据按钮显示对应内容
+        if (text == '0001') {
+            document.getElementById('0001').style.display = 'block';
+        } else if (text == '0002') {
+            document.getElementById('0002').style.display = 'block';
+        }
+    }
+</script>
+
+
+</html>
